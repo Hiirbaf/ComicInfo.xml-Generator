@@ -1,24 +1,24 @@
 <!DOCTYPE html>
-<html lang="zh-CN">
+<html lang="es-AR">
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>🌸 漫画档案室 | ComicInfo Editor</title>
+    <title>🌸 Archivo de manga | ComicInfo Editor</title>
     <style>
         /* ============================================
            1. 全局变量 (Color & Theme)
            ============================================ */
         :root {
-            --bg-body: #f4f1ea;          /* 米色背景 */
-            --bg-card: #ffffff;          /* 卡片纯白 */
-            --primary: #c96a7b;          /* 主色：干枯玫瑰 */
-            --primary-light: #fcecef;    /* 浅粉点缀 */
-            --text-main: #4a3c3c;        /* 深咖色文字 */
-            --text-sub: #7d6b6b;         /* 暖灰色辅文 */
-            --border: #dcbabf;           /* 边框色 */
-            --input-bg: #fcfbf9;         /* 输入框底色 */
-            --focus: #c96a7b;            /* 聚焦高亮 */
-            --radius: 10px;              /* 圆角统一 */
+            --bg-body: #f4f1ea;          /* Fondo beige */
+            --bg-card: #ffffff;          /* Tarjeta de blanco puro. */
+            --primary: #c96a7b;          /* Color principal: Rosa seco */
+            --primary-light: #fcecef;    /* Toques de rosa suave */
+            --text-main: #4a3c3c;        /* Texto de color marrón oscuro */
+            --text-sub: #7d6b6b;         /* Texto de apoyo en gris cálido */
+            --border: #dcbabf;           /* Color del borde */
+            --input-bg: #fcfbf9;         /* Color de fondo del campo de entrada */
+            --focus: #c96a7b;            /* Resaltado de enfoque */
+            --radius: 10px;              /* Radio de esquina uniforme */
         }
 
         * { box-sizing: border-box; margin: 0; padding: 0; }
@@ -26,7 +26,7 @@
         body {
             font-family: "Nunito", "Microsoft YaHei", sans-serif;
             background-color: var(--bg-body);
-            /* 背景网格纹理 */
+            /* Textura de cuadrícula de fondo */
             background-image: 
                 linear-gradient(rgba(200, 180, 180, 0.1) 1px, transparent 1px),
                 linear-gradient(90deg, rgba(200, 180, 180, 0.1) 1px, transparent 1px);
@@ -37,18 +37,18 @@
         }
 
         /* ============================================
-           2. 布局结构 (Layout)
+           2. Estructura de la disposición (Layout)
            ============================================ */
         .container {
             max-width: 1050px;
             margin: 0 auto;
             display: grid;
-            grid-template-columns: 1fr 340px; /* 左自主，右固定 */
+            grid-template-columns: 1fr 340px; /* Izquierda: autónomo; derecha: fijo. */
             gap: 16px;
             align-items: start;
         }
 
-        /* 头部样式 */
+        /* Estilo de encabezado */
         header {
             grid-column: 1 / -1;
             text-align: center;
@@ -63,9 +63,9 @@
         .subtitle { font-size: 0.85rem; color: var(--text-sub); margin-top: 4px; }
 
         /* ============================================
-           3. 通用组件 (Components)
+           3. Componentes generales (Components)
            ============================================ */
-        /* 卡片基础 */
+        /* Conceptos básicos sobre tarjetas */
         .card {
             background: var(--bg-card);
             border-radius: var(--radius);
@@ -83,13 +83,13 @@
         }
         .card-header span { color: var(--primary); font-size: 1.1em; margin-right: 6px; }
 
-        /* 栅格系统 */
+        /* Sistema de rejilla */
         .grid { display: grid; grid-template-columns: repeat(12, 1fr); gap: 10px; }
         .col-12 { grid-column: span 12; }
         .col-6  { grid-column: span 6; }
         .col-4  { grid-column: span 4; }
 
-        /* 表单控件 */
+        /* Controles de formulario */
         .form-group { display: flex; flex-direction: column; }
         label { font-size: 0.8rem; color: var(--text-sub); margin-bottom: 3px; font-weight: 600; }
 
@@ -105,7 +105,7 @@
         }
         textarea { height: auto; min-height: 60px; resize: vertical; line-height: 1.4; }
 
-        /* 输入框聚焦效果 */
+        /* Efecto de enfoque en campo de entrada */
         input:not([type="range"]):focus, select:focus, textarea:focus {
             outline: none;
             border-color: var(--focus);
@@ -113,7 +113,7 @@
             box-shadow: 0 0 0 2px rgba(201, 106, 123, 0.15);
         }
 
-        /* 评分滑块 */
+        /* Control deslizante de valoración */
         .slider-container {
             display: flex; align-items: center; gap: 10px;
             background: var(--input-bg); padding: 4px 10px;
@@ -130,7 +130,7 @@
         input[type="range"]::-webkit-slider-thumb:hover { transform: scale(1.1); }
         .rating-display { font-weight: bold; color: var(--primary); font-size: 0.95em; min-width: 50px; text-align: right; }
 
-        /* 标签按钮 */
+        /* Botón de etiqueta */
         .tag-area { display: flex; flex-wrap: wrap; gap: 6px; margin-top: 6px; }
         .tag-btn {
             font-size: 0.75rem; padding: 2px 10px;
@@ -141,11 +141,11 @@
         .tag-btn:hover { background: var(--primary-light); color: var(--primary); border-color: var(--primary); }
 
         /* ============================================
-           4. 侧边栏与特殊功能 (Sidebar)
+           4. Barra lateral y secciones especiales (Sidebar)
            ============================================ */
         .sidebar { position: sticky; top: 10px; }
 
-        /* 上传框 */
+        /* Cuadro de carga */
         .upload-box {
             border: 2px dashed var(--border); border-radius: var(--radius);
             padding: 20px; text-align: center; background: #fff;
@@ -157,13 +157,13 @@
         }
         .upload-icon { font-size: 24px; display: block; margin-bottom: 5px; }
 
-        /* 预览框容器 */
+        /* Contenedor del cuadro de vista previa */
         .preview-wrapper { position: relative; width: 100%; }
         
-        /* 预览文本域 */
+        /* Campo de texto de vista previa */
         .preview-box {
             width: 100%; 
-            height: 440px; /* 高度减少 */
+            height: 440px; /* Reducción significativa */
             font-family: "Consolas", "Monaco", monospace; font-size: 11px;
             background: #3d3436; color: #fcebeb;
             border: none; padding: 12px; padding-top: 35px;
@@ -171,7 +171,7 @@
             display: block;
         }
         
-        /* 强制预览框聚焦时不改变背景色 */
+        /* No cambies el color de fondo cuando el cuadro de vista previa adquiera el foco. */
         .preview-box:focus {
             background-color: #3d3436 !important;
             color: #fcebeb !important;
@@ -179,7 +179,7 @@
             box-shadow: none !important;
         }
 
-        /* 悬浮复制按钮 */
+        /* Botón de copia flotante */
         .btn-copy-float {
             position: absolute; top: 8px; right: 8px;
             padding: 4px 10px; font-size: 11px;
@@ -191,7 +191,7 @@
         .btn-copy-float:hover { background: #fff; color: var(--primary); transform: scale(1.05); }
         .btn-copy-float:active { transform: scale(0.9); }
         
-        /* 复制成功时的动效类 */
+        /* Clase de animación para operaciones de copia exitosas */
         .btn-copy-float.copied {
             background: #fff; color: var(--primary); border-color: var(--primary);
             animation: pop 0.3s ease;
@@ -202,7 +202,7 @@
             100% { transform: scale(1); }
         }
 
-        /* 底部操作按钮 */
+        /* Botones de acción inferiores */
         .action-buttons { display: flex; flex-direction: column; gap: 10px; margin-top: 15px; }
         .btn {
             width: 100%; padding: 12px; border: none; border-radius: 20px;
@@ -215,7 +215,7 @@
         .btn-reset-block { background: white; border: 2px solid #e0d0d0; color: #8a7a7a; }
         .btn-reset-block:hover { border-color: var(--primary); color: var(--primary); background: #fff8f9; }
 
-        /* 介绍信息 */
+        /* Información introductoria */
         .intro-box {
             margin-top: 16px; padding: 15px; background: #fdfaf8;
             border: 1px dashed var(--border); border-radius: var(--radius);
@@ -223,7 +223,7 @@
         }
         .intro-box h4 { margin: 0 0 5px 0; color: var(--primary); font-size: 0.9rem; }
 
-        /* 移动端适配 */
+        /* Adaptación para móviles */
         @media (max-width: 850px) {
             .container { grid-template-columns: 1fr; }
             .sidebar { position: static; }
@@ -234,56 +234,57 @@
 <body>
 
     <div class="container">
-        <!-- 页面标题 -->
+        <!-- Título de la página -->
         <header>
-            <h1>🌸 漫画档案室 ComicInfo</h1>
-            <div class="subtitle">让整理漫画变成一件治愈的小事 ~</div>
+            <h1>🌸 Archivo de cómics (ComicInfo)</h1>
+            <div class="subtitle">Convierte la organización de tu manga en una pequeña actividad relajante. ~</div>
         </header>
 
-        <!-- 左侧：表单编辑区 -->
+        <!-- Lado izquierdo: Área de edición de formularios -->
         <div class="main-content">
             
-            <!-- 1. 身份信息 -->
+            <!-- 1. Información de identidad -->
             <div class="card">
-                <div class="card-header"><div><span>🏷️</span> 身份信息</div></div>
+                <div class="card-header"><div><span>🏷️</span> Información de identidad</div></div>
                 <div class="grid">
-                    <div class="form-group col-12"><label>系列名称 (Series)</label><input type="text" id="Series" placeholder="例如：百变小樱"></div>
-                    <div class="form-group col-12"><label>本卷/本话标题 (Title)</label><input type="text" id="Title" placeholder="例如：被封印的卡片"></div>
-                    <div class="form-group col-12"><label>原名 / 别名 (AlternateSeries)</label><input type="text" id="AlternateSeries" placeholder="例如：カードキャプターさくら"></div>
-                    <!-- 话数使用 number 类型 -->
-                    <div class="form-group col-4"><label>话数 No.</label><input type="number" id="Number" placeholder="#"></div>
-                    <div class="form-group col-4"><label>卷号 Vol.</label><input type="number" id="Volume" placeholder="Vol"></div>
-                    <div class="form-group col-4"><label>总数 Count</label><input type="number" id="Count"></div>
+                    <div class="form-group col-12"><label>Nombre de la serie (Series)</label><input type="text" id="Series" placeholder="Por ejemplo: Cardcaptor Sakura"></div>
+                    <div class="form-group col-12"><label>Título de este volumen/capítulo (Title)</label><input type="text" id="Title" placeholder="Por ejemplo: Carta sellada"></div>
+                    <div class="form-group col-12"><label>Nombre original / Alias (AlternateSeries)</label><input type="text" id="AlternateSeries" placeholder="Por ejemplo：カードキャプターさくら"></div>
+                    <!-- Utiliza el tipo `number` para el recuento de episodios. -->
+                    <div class="form-group col-4"><label>Episodio n.°</label><input type="number" id="Number" placeholder="#"></div>
+                    <div class="form-group col-4"><label>Volumen n.º</label><input type="number" id="Volume" placeholder="Vol"></div>
+                    <div class="form-group col-4"><label>Recuento total</label><input type="number" id="Count"></div>
                 </div>
             </div>
 
-            <!-- 2. 档案与评价 -->
+            <!-- 2. Documentación y evaluación -->
             <div class="card">
-                <div class="card-header"><div><span>⚙️</span> 档案与评价</div></div>
+                <div class="card-header"><div><span>⚙️</span> Documentación y evaluación</div></div>
                 <div class="grid">
                     <div class="form-group col-6">
-                        <label>语言 (Language)</label>
+                        <label>Idioma</label>
                         <div style="display:flex; gap:6px;">
                             <select onchange="setLanguage(this.value)" style="width:90px; flex-shrink:0; background-color:#f2efeb;">
-                                <option value="" disabled selected>选择</option>
-                                <option value="zh">中文</option>
-                                <option value="ja">日文</option>
-                                <option value="en">英文</option>
+                                <option value="" disabled selected>Elegir</option>
+                                <option value="zh">Chino</option>
+                                <option value="ja">Japonés</option>
+                                <option value="en">Inglés</option>
+                                <option value="es">Español</option>
                             </select>
-                            <input type="text" id="LanguageISO" value="zh">
+                            <input type="text" id="LanguageISO" value="es">
                         </div>
                     </div>
                     <div class="form-group col-6">
-                        <label>阅读方向 (Manga)</label>
+                        <label>Dirección de lectura (Manga)</label>
                         <select id="Manga">
-                            <option value="" selected>❓ 不指定</option>
-                            <option value="No">➡️ 从左到右 (欧美)</option>
-                            <option value="Yes">⬅️ 从右到左 (日漫)</option>
-                            <option value="YesAndRightToLeft">⬅️ 从右到左 (强制)</option>
+                            <option value="" selected>❓ Sin especificar</option>
+                            <option value="No">➡️ De izquierda a derecha (estilo occidental)</option>
+                            <option value="Yes">⬅️ De derecha a izquierda (manga japonés)</option>
+                            <option value="YesAndRightToLeft">⬅️ De derecha a izquierda (forzado)</option>
                         </select>
                     </div>
                     <div class="form-group col-12">
-                        <label>推荐评分 (Rating)</label>
+                        <label>Rating</label>
                         <div class="slider-container">
                             <input type="range" id="CommunityRating" min="0" max="5" step="0.5" value="0" oninput="updateRatingDisplay(this.value)">
                             <div class="rating-display">
@@ -292,110 +293,110 @@
                         </div>
                     </div>
                     <div class="form-group col-6">
-                        <label>年龄分级 (Age)</label>
+                        <label>Clasificación por edades</label>
                         <select id="AgeRating">
-                            <option value="">默认</option>
-                            <option value="Everyone">🟢 全年龄</option>
-                            <option value="Teen">🔵 青少年 (13+)</option>
-                            <option value="Mature 17+">🟣 青年 (17+)</option>
-                            <option value="Adults Only 18+">🔴 成人 (18+)</option>
+                            <option value="">por defecto</option>
+                            <option value="Everyone">🟢 Todas las edades</option>
+                            <option value="Teen">🔵 Adolescentes (13+)</option>
+                            <option value="Mature 17+">🟣 Jóvenes (17+)</option>
+                            <option value="Adults Only 18+">🔴 Adulto (18+)</option>
                         </select>
                     </div>
                     <div class="form-group col-6">
-                        <label>完结状态 (Status)</label>
-                        <!-- 严格限定四个状态值 -->
+                        <label>Estado de publicación</label></label>
+                        <!-- Limitar estrictamente a cuatro valores de estado -->
                         <select id="Status">
-                            <option value="">不指定</option>
-                            <option value="Ongoing">📖 连载中</option>
-                            <option value="Ended">✅ 已完结</option>
-                            <option value="Hiatus">⏸️ 休刊/暂停</option>
-                            <option value="Cancelled">❌ 取消/腰斩</option>
+                            <option value="">Sin especificar</option>
+                            <option value="Ongoing">📖 En curso</option>
+                            <option value="Ended">✅ Terminado</option>
+                            <option value="Hiatus">⏸️ Interrupción/Pausa</option>
+                            <option value="Cancelled">❌ Cancelado</option>
                         </select>
                     </div>
                 </div>
             </div>
 
-            <!-- 3. 人员与出版 -->
+            <!-- 3. Personal y publicaciones -->
             <div class="card">
-                <div class="card-header"><div><span>🎨</span> 人员与出版</div></div>
+                <div class="card-header"><div><span>🎨</span> Personal y publicaciones</div></div>
                 <div class="grid">
-                    <div class="form-group col-6"><label>脚本/作者</label><input type="text" id="Writer"></div>
-                    <div class="form-group col-6"><label>作画/画师</label><input type="text" id="Penciller"></div>
-                    <div class="form-group col-6"><label>汉化/翻译</label><input type="text" id="Translator"></div>
-                    <div class="form-group col-6"><label>编辑</label><input type="text" id="Editor"></div>
-                    <div class="form-group col-6"><label>出版社</label><input type="text" id="Publisher" placeholder="例如：集英社"></div>
-                    <div class="form-group col-6"><label>来源网址</label><input type="text" id="Web" placeholder="例如：https://..."></div>
-                    <div class="form-group col-4"><label>年 Year</label><input type="number" id="Year"></div>
-                    <div class="form-group col-4"><label>月 Month</label><input type="number" id="Month"></div>
-                    <div class="form-group col-4"><label>日 Day</label><input type="number" id="Day"></div>
+                    <div class="form-group col-6"><label>Guionista/Autor</label><input type="text" id="Writer"></div>
+                    <div class="form-group col-6"><label>Obra de arte/Artista</label><input type="text" id="Penciller"></div>
+                    <div class="form-group col-6"><label>Localización/Traducción</label><input type="text" id="Translator"></div>
+                    <div class="form-group col-6"><label>Editor</label><input type="text" id="Editor"></div>
+                    <div class="form-group col-6"><label>Publisher</label><input type="text" id="Publisher" placeholder="Por ejemplo: Shueisha"></div>
+                    <div class="form-group col-6"><label>URL de la fuente</label><input type="text" id="Web" placeholder="Por ejemplo：https://..."></div>
+                    <div class="form-group col-4"><label>Año</label><input type="number" id="Year"></div>
+                    <div class="form-group col-4"><label>Mes</label><input type="number" id="Month"></div>
+                    <div class="form-group col-4"><label>Día</label><input type="number" id="Day"></div>
                 </div>
             </div>
 
-            <!-- 4. 内容详情 -->
+            <!-- 4. Detalles del contenido -->
             <div class="card">
-                <div class="card-header"><div><span>📝</span> 内容详情</div></div>
+                <div class="card-header"><div><span>📝</span> Detalles del contenido</div></div>
                 <div class="grid">
-                    <div class="form-group col-12"><label>剧情简介 (Summary)</label><textarea id="Summary"></textarea></div>
+                    <div class="form-group col-12"><label>Resumen de la trama</label><textarea id="Summary"></textarea></div>
                     <div class="form-group col-12">
-                        <label>题材分类 (Genre)</label>
-                        <input type="text" id="Genre" placeholder="点击下方快速添加...">
+                        <label>Géneros</label>
+                        <input type="text" id="Genre" placeholder="Haz clic a continuación para añadir rápidamente...">
                         <div class="tag-area" id="genre-presets"></div>
                     </div>
                     <div class="form-group col-12">
-                        <label>常用标签 (Tags)</label>
-                        <input type="text" id="Tags" placeholder="点击下方快速添加...">
+                        <label>Tags</label>
+                        <input type="text" id="Tags" placeholder="Haz clic a continuación para añadir rápidamente...">
                         <div class="tag-area" id="status-presets"></div>
                     </div>
-                    <div class="form-group col-12"><label>备注 (Notes)</label><input type="text" id="Notes"></div>
+                    <div class="form-group col-12"><label>Notas</label><input type="text" id="Notes"></div>
                 </div>
             </div>
         </div>
 
-        <!-- 右侧：侧边栏 -->
+        <!-- Lado derecho: Barra lateral -->
         <div class="sidebar">
             
-            <!-- 上传区域 -->
+            <!-- Área de carga -->
             <div id="drop-zone" class="upload-box" onclick="document.getElementById('file-input').click()">
                 <span class="upload-icon">📂</span>
-                <div class="upload-text">点击或拖拽 XML 文件</div>
-                <div class="upload-sub">自动读取现有 ComicInfo 信息</div>
+                <div class="upload-text">Haz clic o arrastra un archivo XML</div>
+                <div class="upload-sub">Leer automáticamente la información de ComicInfo existente</div>
                 <input type="file" id="file-input" hidden accept=".xml" onchange="handleFileUpload(this.files)">
             </div>
 
-            <!-- 预览与操作 -->
+            <!-- Vista previa y operaciones -->
             <div class="card" style="border: 2px dashed var(--primary); background: #fffcfc; padding-top:10px;">
                 <div class="card-header" style="justify-content: center; color: var(--primary); border:none; margin-bottom:5px;">
-                    🔍 档案预览
+                    🔍 Vista previa del archivo
                 </div>
                 
                 <div class="preview-wrapper">
-                    <!-- 复制按钮 -->
-                    <button class="btn-copy-float" onclick="copyToClipboard()" title="复制内容">📋 复制</button>
-                    <!-- 预览文本框 -->
+                    <!-- Botón de copiar -->
+                    <button class="btn-copy-float" onclick="copyToClipboard()" title="Copiar contenido">📋 Copiar</button>
+                    <!-- Cuadro de texto de vista previa -->
                     <textarea id="preview" class="preview-box" readonly></textarea>
                 </div>
                 
                 <div class="action-buttons">
                     <button class="btn btn-primary" onclick="generateAndDownload()">
-                        📥 生成并下载 XML
+                        📥 Generar y descargar XML
                     </button>
                     <button class="btn btn-reset-block" onclick="resetForm()">
-                        🔄 清空重置
+                        🔄 Borrar y restablecer
                     </button>
                 </div>
             </div>
 
-            <!-- 项目简介 -->
+            <!-- Descripción general del proyecto -->
             <div class="intro-box">
-                <h4>🌸 关于本项目</h4>
+                <h4>🌸 Acerca de este proyecto</h4>
                 <p>
-                    这是一个轻量级的 <b>ComicInfo.xml</b> 编辑器。
+                    Este es un editor ligero de <b>ComicInfo.xml</b>.
                     <br>
-                    • <b>导入功能</b>：上方可直接导入旧文件进行修改。
+                    • <b>Función de importación</b>：Puedes importar directamente archivos antiguos para modificarlos en la parte superior.
                     <br>
-                    • <b>安全隐私</b>：纯本地运行，无数据上传。
+                    • <b>Seguridad y privacidad</b>：Se ejecuta exclusivamente de forma local, sin subir datos.
                     <br>
-                    • <b>兼容性</b>：完美支持 <b>Komga</b>、<b>Tachiyomi</b> 等。
+                    • <b>Compatibilidad</b>：Es totalmente compatible con <b>Komga</b>、<b>Tachiyomi</b> etc.
                 </p>
             </div>
         </div>
@@ -403,13 +404,13 @@
 
     <script>
         /* ============================================
-           核心数据定义
+           Definiciones de datos fundamentales
            ============================================ */
-        // 题材与标签预设
-        const genreList = ["女性向", "恋爱", "纯爱", "校园", "百合", "喜剧", "奇幻", "魔法", "治愈", "日常", "剧情", "冒险", "古风", "职场", "后宫", "异世界", "悬疑"];
-        const tagList = ["连载中", "已完结", "彩色", "黑白", "复仇", "单行本", "同人", "WEB漫", "无修", "官方汉化", "个人汉化", "NTR", "触手"];
+        // Ajustes preestablecidos de tema y etiquetas
+        const genreList = ["Comedia", "Deportes", "Recuentos de Vida", "Romance", "Ciencia Ficción", "Acción", "Fantasía", "Magia", "Drama", "Horror", "Música", "Aventura", "Misterio", "Sobrenatural", "Harem", "Isekai", "Suspenso"];
+        const tagList = ["En curso", "Terminado", "Color", "En blanco y negro", "Venganza", "Volumen Único", "Doujin", "Webcómic", "Sin censura", "NTR", "Tentáculos"];
   
-        // 表单字段映射
+        // Asignación de campos de formulario
         const allFields = [
             'Series', 'Title', 'AlternateSeries', 'Number', 'Volume', 'Count',
             'Summary', 'Notes', 'Year', 'Month', 'Day',
@@ -422,15 +423,15 @@
            初始化逻辑
            ============================================ */
         window.onload = function() {
-            renderTags();        // 1. 渲染快捷标签
-            setDefaultDate();    // 2. 填充日期
-            bindEvents();        // 3. 绑定监听
-            setupDragAndDrop();  // 4. 初始化拖拽
-            updatePreview();     // 5. 首次预览
+            renderTags();        // 1. Etiquetas de acceso directo para renderizado
+            setDefaultDate();    // 2. Indica la fecha
+            bindEvents();        // 3. Vincular oyente
+            setupDragAndDrop();  // 4. Iniciar la función de arrastrar y soltar
+            updatePreview();     // 5. Primer adelanto
         };
 
         function bindEvents() {
-            // 监控所有输入变化
+            // Supervisar todos los cambios en las entradas
             document.querySelectorAll('input:not([type="range"]), select, textarea').forEach(el => {
                 el.addEventListener('input', updatePreview);
                 el.addEventListener('change', updatePreview);
@@ -438,9 +439,9 @@
         }
 
         /* ============================================
-           辅助功能函数
+           Funciones de utilidad
            ============================================ */
-        // 渲染标签 DOM
+        // Etiquetas de renderizado DOM
         function renderTags() {
             const createBadge = (text, id) => {
                 const s = document.createElement('span');
@@ -453,7 +454,7 @@
             tagList.forEach(t => document.getElementById('status-presets').appendChild(createBadge(t, 'Tags')));
         }
 
-        // 添加标签值
+        // Añadir valor de etiqueta
         function addTag(id, text) {
             const el = document.getElementById(id);
             let val = el.value.trim();
@@ -465,7 +466,7 @@
             updatePreview();
         }
 
-        // 语言/日期/评分设置
+        // Configuración de idioma/fecha/calificación
         function setLanguage(val) { document.getElementById('LanguageISO').value = val; updatePreview(); }
         function updateRatingDisplay(val) { document.getElementById('rating-val-text').textContent = parseFloat(val).toFixed(1); updatePreview(); }
         function setDefaultDate() {
@@ -476,7 +477,7 @@
         }
 
         /* ============================================
-           XML 读取与写入
+           Lectura y escritura de XML
            ============================================ */
         function setupDragAndDrop() {
             const dropZone = document.getElementById('drop-zone');
@@ -495,7 +496,7 @@
                     const reader = new FileReader();
                     reader.onload = e => parseAndPopulate(e.target.result);
                     reader.readAsText(file);
-                } else { alert("请上传有效的 XML 文件"); }
+                } else { alert("Por favor, sube un archivo XML válido."); }
             }
         }
 
@@ -513,12 +514,12 @@
                     }
                 });
                 updatePreview();
-                alert("🌸 读取成功！数据已自动填充");
-            } catch (e) { console.error(e); alert("XML 解析失败，请检查文件格式"); }
+                alert("🌸 ¡Lectura realizada con éxito! Los datos se han rellenado automáticamente.");
+            } catch (e) { console.error(e); alert("El análisis del archivo XML ha fallado; por favor, compruebe el formato del archivo."); }
         }
 
         /* ============================================
-           XML 生成与导出
+           Generación y exportación de XML
            ============================================ */
         function escapeXml(str) {
             if (!str) return "";
@@ -548,7 +549,7 @@
         }
 
         /* ============================================
-           剪贴板操作 (带动效)
+           Operaciones con el portapapeles (con animaciones)
            ============================================ */
         function copyToClipboard() {
             const el = document.getElementById("preview");
@@ -556,10 +557,10 @@
             
             el.select();
             navigator.clipboard.writeText(el.value).then(() => {
-                const oldText = "📋 复制";
-                btn.classList.add('copied');    // 添加动效类
-                btn.innerHTML = "✨ 已复制";
-                setTimeout(() => {              // 2秒后复原
+                const oldText = "📋 Copiar";
+                btn.classList.add('copied');    // Añadir clases de animación
+                btn.innerHTML = "✨ Copiado";
+                setTimeout(() => {              // Se restaura después de 2 segundos
                     btn.classList.remove('copied');
                     btn.innerHTML = oldText;
                 }, 2000);
@@ -567,13 +568,13 @@
         }
 
         function resetForm() {
-            if(confirm("确定要清空所有内容吗？")) {
+            if(confirm("¿Estás seguro de que quieres borrarlo todo？")) {
                 document.querySelectorAll('input:not([type="range"]), textarea').forEach(e => e.value = "");
                 document.querySelectorAll('select').forEach(e => e.selectedIndex = 0);
                 document.getElementById('CommunityRating').value = 0;
                 document.getElementById('rating-val-text').textContent = "0.0";
                 setDefaultDate();
-                document.getElementById('LanguageISO').value = 'zh';
+                document.getElementById('LanguageISO').value = 'es';
                 updatePreview();
             }
         }
