@@ -416,7 +416,7 @@
             'Summary', 'Notes', 'Year', 'Month', 'Day',
             'Writer', 'Penciller', 'Translator', 'Editor',
             'Publisher', 'Web', 'Genre', 'Tags', 'Status',
-            'LanguageISO', 'Manga', 'AgeRating', 'CommunityRating'
+            'j2k:LanguageJ2K', 'Manga', 'AgeRating', 'CommunityRating'
         ];
 
         /* ============================================
@@ -467,7 +467,7 @@
         }
 
         // Configuración de idioma/fecha/calificación
-        function setLanguage(val) { document.getElementById('LanguageISO').value = val; updatePreview(); }
+        function setLanguage(val) { document.getElementById('j2k:LanguageJ2K').value = val; updatePreview(); }
         function updateRatingDisplay(val) { document.getElementById('rating-val-text').textContent = parseFloat(val).toFixed(1); updatePreview(); }
         function setDefaultDate() {
             const d = new Date();
